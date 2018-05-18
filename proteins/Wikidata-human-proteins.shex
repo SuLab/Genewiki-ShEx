@@ -51,12 +51,12 @@ gw:wikidata_human_protein {
 
 protein:P31_instance_of {
 	ps:P31 [wd:Q8054] ;
-	prov:wasDerivedFrom @reference:uniprot_reference;
+	prov:wasDerivedFrom @reference:protein_reference;
 }
 
 protein:P279_subclass_of_protein { 
     ps:P279 [wd:Q8054] ;
-	prov:wasDerivedFrom @reference:uniprot_reference;
+	prov:wasDerivedFrom @reference:protein_reference;
 } 
 
 protein:P351_ncbi_gene_id .
@@ -64,17 +64,17 @@ protein:P594_ensembl_gene_id .
 
 protein:P352_uniprot_id {
 	ps:P352 LITERAL ;
-	prov:wasDerivedFrom @reference:uniprot_reference;
+	prov:wasDerivedFrom @reference:protein_reference;
 }
 
 protein:P361_part_of {
 	ps:P361 @gw:InterproFamily ;
-	prov:wasDerivedFrom @reference:interpro_reference;
+	prov:wasDerivedFrom @reference:protein_reference;
 }
 
 protein:P527_has_part {
 	ps:P527 @gw:InterproFamily ;
-	prov:wasDerivedFrom @reference:interpro_reference;
+	prov:wasDerivedFrom @reference:protein_reference;
 }
 
 protein:P637_RefSeq_Protein_ID .
@@ -85,12 +85,12 @@ protein:P682_biological_process .
 
 protein:P702_encoded_by {	
      ps:P702 @gw:human_gene ;
-	 prov:wasDerivedFrom @reference:uniprot_reference+ 
+	 prov:wasDerivedFrom @reference:protein_reference+ 
 } 
 
 protein:P703_found_in_taxon_human {	
      ps:P703 [wd:Q15978631] ;
-	 prov:wasDerivedFrom @reference:uniprot_reference+ 
+	 prov:wasDerivedFrom @reference:protein_reference + 
 }
 
 protein:P705_ensembl_protein_id .
@@ -98,6 +98,11 @@ protein:P705_ensembl_protein_id .
 protein:P1910_decreased_expression_in . 
 
 # REFERENCES
+
+reference:protein_reference @reference:uniprot_reference OR 
+    @reference:uniprot_reference ; 
+	
+
 reference:uniprot_reference {
 	pr:P248	[wd:Q905695] ;
 	pr:P352	LITERAL ;

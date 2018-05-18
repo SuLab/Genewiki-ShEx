@@ -1,10 +1,10 @@
 [
     {
-        "schemaLabel": "CIVIC variant shape",
-        "schemaURL": "https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/variants/wikidata-cancer-variant.shex",
-        "dataLabel": "Get all civic Items from Wikidata" ,
+        "schemaLabel": "Fileformats in wikidata-cancer-variant",
+        "schemaURL": "https://github.com/shexSpec/schemas/blob/master/Wikidata/DigitalPreservation/wikidataFileFormat.shex",
+        "dataLabel": "Get 10 file formats from Wikidata" ,
         "data": "Endpoint: https://query.wikidata.org/sparql",
-        "queryMap": "SPARQL '''PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT ?item WHERE { ?item wdt:P3329 ?civicid .}'''@START",
+        "queryMap": "SPARQL '''PREFIX wdt: <http://www.wikidata.org/prop/direct/>\nPREFIX wd: <http://www.wikidata.org/entity/\nSELECT ?item WHERE { ?item wdt:P31 wd:Q235557 .}'''@START",
         "status": "conformant"
     }
 ]
