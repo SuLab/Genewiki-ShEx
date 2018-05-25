@@ -119,9 +119,22 @@ protein:P639_RefSeq_RNA_ID {
 	prov:wasDerivedFrom @reference:protein_reference;
 }
 
-protein:P680_molecular_function .
-protein:P681_cell_component .
-protein:P682_biological_process .
+<molecular_function> {
+    p:P31{
+    	ps:P31   [wd:Q14860489]
+    }
+}
+
+<cell_component> {
+    p:P31{
+    	ps:P31   [wd:Q5058355]
+    }
+}
+<biological_process> {
+    p:P31{
+    	ps:P31   [wd:Q2996394]
+    }
+}
 
 <determination_method> [
   wd:Q23174122	
