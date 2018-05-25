@@ -80,10 +80,61 @@ protein:P637_RefSeq_Protein_ID {
 	prov:wasDerivedFrom @reference:protein_reference;
 }
 
-protein:P680_molecular_function .
-protein:P681_cell_component .
-protein:P682_biological_process .
+protein:P680_molecular_function {
+	ps:P680 @<molecular_function> ;
+	pq:P459 @<determination_method> ;
+	prov:wasDerivedFrom @reference:protein_reference;
+}
+protein:P681_cell_component {
+	ps:P681 @<cell_component> ;
+	pq:P459 @<determination_method> ;
+	prov:wasDerivedFrom @reference:protein_reference;
+}
+protein:P682_biological_process {
+	ps:P682 @<biological_process> ;
+	pq:P459 @<determination_method> ;
+	prov:wasDerivedFrom @reference:protein_reference;
+}
 
+<molecular_function> {
+    p:P31{
+    	ps:P31   [wd:Q14860489]
+    }
+}
+
+<cell_component> {
+    p:P31{
+    	ps:P31   [wd:Q5058355]
+    }
+}
+<biological_process> {
+    p:P31{
+    	ps:P31   [wd:Q2996394]
+    }
+}
+
+<determination_method> [
+  wd:Q23174122	
+wd:Q23174671	
+wd:Q23174952	
+wd:Q23175558	
+wd:Q23190827	
+wd:Q23190853	
+wd:Q23190881	
+wd:Q23173789	
+wd:Q23174389	
+wd:Q23190854	
+wd:Q23190856	
+wd:Q23190842	
+wd:Q23175251	
+wd:Q23190637	
+wd:Q23190825	
+wd:Q23190738	
+wd:Q23190852	
+wd:Q23190857	
+wd:Q23190850	
+wd:Q23190826
+]
 
 protein:P702_encoded_by {	
      ps:P702 @gw:human_gene ;
