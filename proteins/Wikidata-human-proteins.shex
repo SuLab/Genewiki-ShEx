@@ -80,7 +80,6 @@ protein:P637_RefSeq_Protein_ID {
 	prov:wasDerivedFrom @reference:protein_reference;
 }
 
-<<<<<<< HEAD
 protein:P680_molecular_function {
 	ps:P680 @<molecular_function> ;
 	pq:P459 @<determination_method> ;
@@ -95,23 +94,6 @@ protein:P682_biological_process {
 	ps:P682 @<biological_process> ;
 	pq:P459 @<determination_method> ;
 	prov:wasDerivedFrom @reference:protein_reference;
-}
-
-<molecular_function> {
-    p:P31{
-    	ps:P31   [wd:Q14860489]
-    }
-}
-
-<cell_component> {
-    p:P31{
-    	ps:P31   [wd:Q5058355]
-    }
-}
-<biological_process> {
-    p:P31{
-    	ps:P31   [wd:Q2996394]
-    }
 }
 
 protein:P639_RefSeq_RNA_ID {
