@@ -1,0 +1,39 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX pr: <http://www.wikidata.org/prop/reference/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX wdref: <http://www.wikidata.org/reference/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX gw: <http://genewiki.uri.tbd/>
+<#clinvar_variant> {
+	rdfs:label   xsd:string ;
+	schema:description 	xsd:string ;
+	p:P31 @<#P31_instance_of> ;
+	p:P1929 @<#P1929_ClinVar_accession> ;
+	p:P3331 @<#P3331_HGVS_nomenclature> ;
+}
+
+<#P31_instance_of> {
+	ps:P31  @<#wd_variant_type> ;
+	prov:wasDerivedFrom @<#clinvar_reference>
+}
+
+<#wd_variant_type> {
+	wdt:obo:P3986 . # A wikidata item that has a sequence ontology ID
+}
+
+<#P1929_ClinVar_accession> {
+	ps:P1929	xsd:string ;
+	prov:wasDerivedFrom @<#clinvar_reference>
+}
+
+<#P3331_HGVS_nomenclature> {
+	ps:P3331    xsd:string ; # TODO: Work on a regular expression on HGVS nomenclature
+	prov:wasDerivedFrom @<#clinvar_reference>
+}
+
+<#gw:clinvar_reference> . # we haven't decided on the reference pattern yet. 
