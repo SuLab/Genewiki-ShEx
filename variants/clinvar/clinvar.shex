@@ -1,3 +1,5 @@
+
+#BASE <https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/master/variants/clinvar/clinvar.shex>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX pr: <http://www.wikidata.org/prop/reference/>
@@ -9,6 +11,10 @@ PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wikibase: <http://wikiba.se/ontology#>
 PREFIX gw: <http://genewiki.uri.tbd/>
+
+start = @<#clinvar_variant>
+
+
 <#clinvar_variant> {
 	rdfs:label   xsd:string ;
 	schema:description 	xsd:string ;
