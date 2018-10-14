@@ -14,6 +14,8 @@ PREFIX do: <http://purl.obolibrary.org/obo/DOID_>
 PREFIX doio: <http://identifiers.org/doid/>
 PREFIX mir: <http://www.ebi.ac.uk/miriam/main/collections/>
 PREFIX gw: <http://micel.io/genewiki/>
+PREFIX wdtn: <http://www.wikidata.org/prop/direct-normalized/>
+PREFIX wba: <http://wikiba.se/ontology#>
 
 
 start = @gw:disease
