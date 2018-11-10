@@ -10,7 +10,7 @@ PREFIX p: <http://www.wikidata.org/prop/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wikibase: <http://wikiba.se/ontology#>
-PREFIX gw: <http://genewiki.uri.tbd/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 start = @<#clinvar_variant>
 
