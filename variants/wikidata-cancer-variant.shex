@@ -1,4 +1,4 @@
-BASE <>
+BASE <https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/master/variants/wikidata-cancer-variant.shex>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX schema: <http://schema.org/>
