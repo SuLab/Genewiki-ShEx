@@ -4,7 +4,7 @@
         "schemaURL": "https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/master/variants/wikidata-cancer-variant.shex",
         "dataLabel": "Get 10 gene Items from Wikidata" ,
         "data": "Endpoint: https://query.wikidata.org/sparql",
-        "queryMap": "SPARQL '''PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT ?item WHERE { ?item wdt:P351 ?geneid ; wdt:P703 wd:Q15978631 .} LIMIT 10'''@START",
+        "queryMap": "SPARQL '''PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT * WHERE {?item wdt:P3329 ?id .} LIMIT 10'''@START",
         "status": "conformant"
     },
     {
@@ -12,7 +12,7 @@
         "schemaURL": "https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/master/variants/wikidata-cancer-variant.shex",
         "dataLabel": "Get 100 gene Items from Wikidata" ,
         "data": "Endpoint: https://query.wikidata.org/sparql",
-        "queryMap": "SPARQL '''PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT ?item WHERE { ?item wdt:P351 ?geneid ; wdt:P703 wd:Q15978631  .} LIMIT 100'''@START",
+        "queryMap": "SPARQL '''PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT * WHERE {?item wdt:P3329 ?id .} LIMIT 100'''@START",
         "status": "conformant"
     },
     {
@@ -20,7 +20,7 @@
         "schemaURL": "https://raw.githubusercontent.com/SuLab/Genewiki-ShEx:x/variants/wikidata-cancer-variant.shex",
         "dataLabel": "Get all gene Items from Wikidata" ,
         "data": "Endpoint: https://query.wikidata.org/sparql",
-        "queryMap": "SPARQL '''PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT ?item WHERE { ?item wdt:P351 ?geneid ; wdt:P703 wd:Q15978631  .}'''@START",
+        "queryMap": "SPARQL '''PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT * WHERE {?item wdt:P3329 ?id .}'''@START",
         "status": "conformant"
     }
 ]

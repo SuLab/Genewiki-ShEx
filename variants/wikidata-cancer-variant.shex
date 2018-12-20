@@ -20,11 +20,10 @@ start = <#wikidata-civic-variant-record>
 	# P644 = genomic start
 	# P645 = genomic end
 	(
-		ps:P644 LITERAL+ ;
-		ps:P645 LITERAL+ ;
 		p:P644 <#genomic-location-provenance>+;	
 		p:P645 <#genomic-location-provenance>+;
-	)* ;					
+	)* ;
+						
  	p:P1057	<#P1057-chromosome>* ;
 	 
   	# P3354 = positive therapeutic predictor
