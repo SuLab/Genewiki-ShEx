@@ -9,7 +9,7 @@ PREFIX pr: <http://www.wikidata.org/prop/reference/>
 PREFIX ps: <http://www.wikidata.org/prop/statement/>
 PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
 
-start = <#wikidata-civic-variant-record>
+start = @<#wikidata-civic-variant-record>
 
 <#wikidata-civic-variant-record> {
  	p:P31 <#P31_instance_of> ;
@@ -23,7 +23,7 @@ start = <#wikidata-civic-variant-record>
 		p:P644 <#genomic-location-provenance>+;	
 		p:P645 <#genomic-location-provenance>+;
 	)* ;
-						
+
  	p:P1057	<#P1057-chromosome>* ;
 	 
   	# P3354 = positive therapeutic predictor
@@ -51,9 +51,13 @@ start = <#wikidata-civic-variant-record>
 } 
 
 <#P31_instance_of> { 
-            ps:P31	[ wd:Q15304597 ] ; # Q15304597 = sequence variant
+            ps:P31	@<#variant_types> ;
 	        prov:wasDerivedFrom <#civic-variant-reference>;
 		  } 
+<#variant_types> [
+   wd:Q15304597   # Q15304597 = sequence variant
+   wd:Q28419128 # Q28419128 = transcript fusion
+]
 
 <#P279_subclass_of> { 
 	        ps:P279	<#variant_type> ;
