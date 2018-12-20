@@ -51,64 +51,64 @@ start = <#wikidata-civic-variant-record>
  	p:P3329 <#P3329-civicid> ;
 } 
 
-gw:P31_instance_of { 
+<#P31_instance_of> { 
             ps:P31	[ wd:Q15304597 ] ; # Q15304597 = sequence variant
 	        prov:wasDerivedFrom <#civic-variant-reference>;
 		  } 
 
-gw:P279_subclass_of { 
+<#P279_subclass_of> { 
 	        ps:P279	<#variant_type> ;
 	        prov:wasDerivedFrom <#civic-variant-reference>;
 		  } 
 
-gw:P3343-biological-variant-of{ 
+<#P3343-biological-variant-of> { 
 	        ps:P3343	<#human_gene> ;
 	        prov:wasDerivedFrom <#civic-variant-reference>;
 		    } 
 
-gw:P1057-chromosome {
+<#P1057-chromosome> {
  	   ps:P1057 <#human-chromosomes> ;
  	   pq:P659	<#genomic-assembly>+ ;  
  	   prov:wasDerivedFrom <#civic-variant-reference>+ ;   
  	} 
 
-gw:P3354-positive-therapeutic-predictor { 
+<#P3354-positive-therapeutic-predictor> { 
 	          ps:P3354	<#pharmaceutical_drug> ;
 	          # P2175 = medical condition treated 
 	 		  pq:P2175	<#wikidata-disease> ;
  	          prov:wasDerivedFrom <#wikicite>+ ;
 			} 
 
-gw:P3355-negative-therapeutic-predictor { 
+<#P3355-negative-therapeutic-predictor> { 
 	          ps:P3355	<#pharmaceutical_drug> ;
 	          # P2175 = medical condition treated 
 	 		  pq:P2175	<#wikidata-disease> ;
  	          prov:wasDerivedFrom <#wikicite>+ ;
 			} 
-gw:P3356-positive-diagnostic-predictor { 
+<#P3356-positive-diagnostic-predictor> { 
 	          ps:P3356	<#wikidata-disease> ;
  	          prov:wasDerivedFrom <#wikicite>+;
 			}
 
-gw:P3357-negative-diagnostic-predictor { 
+<#P3357-negative-diagnostic-predictor> { 
 	          ps:P3356	<#wikidata-disease> ;
  	          prov:wasDerivedFrom <#wikicite>+;
 			}
-gw:P3358-positive-prognostic-predictor { 
+<#P3358-positive-prognostic-predictor> { 
 	          ps:P3358	<#wikidata-disease> ;
  	          prov:wasDerivedFrom <#wikicite>+;
 			}
-gw:P3359-negative-prognostic-predictor {
+<#P3359-negative-prognostic-predictor> {
 			  ps:P3359  <#wikidata-disease> ;
 			  prov:wasDerivedFrom <#wikicite>+ ;
 }
 
-gw:P3329-civicid { 
+<#P3329-civicid> { 
 	ps:P3329	LITERAL ;
 	prov:wasDerivedFrom <#civic-variant-reference>; 
 }
 
-gw:civic-variant-reference {
+<#civic-variant-reference> {
       # P248 = Stated in
       pr:P248	[wd:Q27612411 ] ;
 	  # P854 = reference URL
@@ -117,7 +117,7 @@ gw:civic-variant-reference {
 	  pr:P813	xsd:dateTime ;
 } 
 
-gw:civic-evidence-reference {
+<#civic-evidence-reference> {
       # P248 = Stated in
       pr:P248	[wd:Q27612411] ;
 	  # P854 = reference URL
@@ -126,31 +126,31 @@ gw:civic-evidence-reference {
 	  pr:P813	xsd:dateTime ;
 } 
 
-gw:genomic-location-provenance {
+<#genomic-location-provenance> {
 	pq:P1057	<#human-chromosomes>+ ;	
 	pq:P659	<#genomic-assembly>+ ;
 	prov:wasDerivedFrom <#ensembl-gene-reference>+ ;  
 } 
 
-gw:ensembl-gene-reference {
+<#ensembl-gene-reference> {
       pr:P248	[wd:Q27975061
 	             wd:Q30227110 ] ;
 	  pr:P594	LITERAL ;
 }
 
-gw:civic_reference {
+<#civic_reference> {
 	pr:P248	<#wikicite> ;
 	pr:P813	xsd:dateTime ;
 	pr:P854	IRI ;
 } 
 
-gw:wikicite {
+<#wikicite> {
 	wdt:P31		wd:Q13442814 ;	
 	wdt:P698	LITERAL ;
 	wdt:P356	LITERAL ;
 } 
 
-gw:pharmaceutical_drug {
+<#pharmaceutical_drug> {
     # P31 = instance of & wd:Q12140 = Pharmaceutical drug
  	p:P31 { ps:P31	[wd:Q12140] ;
  	          prov:wasDerivedFrom <#civic-evidence-reference>+ ;
@@ -162,21 +162,21 @@ gw:pharmaceutical_drug {
 			}* ;
 } 
 
-gw:pubchem-compound-reference {
+<#pubchem-compound-reference> {
 	pr:P248 [wd:Q278487] ;
 	pr:P662	LITERAL ;
 	pr:P1476	LITERAL ;
 	pr:P813	xsd:dateTime ;
 } 
 
-gw:variant_type {
+<#variant_type> {
    p:P3986 {
       ps:P3986	LITERAL ;
 	  ps:P2888	IRI ;
    } ;
 } 
 
-gw:human_gene {
+<#human_gene> {
    p:P31 { 
     ps:P31 [wd:Q7187] ;
    } ;
@@ -188,14 +188,14 @@ gw:human_gene {
    } ;
 }
 
-gw:wikidata-disease {
+<#wikidata-disease> {
    p:P699 {
      ps:P699	LITERAL ;  
    }
 }
 
 ## LISTS
-gw:human-chromosomes [
+<#human-chromosomes> [
 				wd:Q430258  # human chromosome 1
 				wd:Q638893  # human chromosome 2
 				wd:Q668633  # human chromosome 3
@@ -223,7 +223,7 @@ gw:human-chromosomes [
 				wd:Q27075  # human chromosome MT
 			] 
 			
-gw:genomic-assembly [
+<#genomic-assembly> [
    				wd:Q20966585 # Genome assembly GRCh38
 				wd:Q21067546 # Genome assembly GRCh37	
 			] 
