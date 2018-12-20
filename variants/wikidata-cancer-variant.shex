@@ -1,3 +1,4 @@
+BASE <>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX schema: <http://schema.org/>
@@ -7,14 +8,13 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX pr: <http://www.wikidata.org/prop/reference/>
 PREFIX ps: <http://www.wikidata.org/prop/statement/>
 PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
-PREFIX gw: <http://micel.io/genewiki/>
 
-start = @gw:wikidata-civic-variant-record
+start = <#wikidata-civic-variant-record>
 
-gw:wikidata-civic-variant-record {
- 	p:P31 @gw:P31_instance_of ;
- 	p:P279 @gw:P279_subclass_of+ ;
-	p:P3343 @gw:P3343-biological-variant-of;
+<#wikidata-civic-variant-record> {
+ 	p:P31 <#P31_instance_of> ;
+ 	p:P279 <#P279_subclass_of>+ ;
+	p:P3343 <#P3343-biological-variant-of>;
 	
 	# The properties genomic start and genomic end are both optional, but if one exist the others needs to exist as well
 	# P644 = genomic start
@@ -22,90 +22,90 @@ gw:wikidata-civic-variant-record {
 	(
 		ps:P644 LITERAL+ ;
 		ps:P645 LITERAL+ ;
-		p:P644 @gw:genomic-location-provenance+;	
-		p:P645 @gw:genomic-location-provenance+;
+		p:P644 <#genomic-location-provenance>+;	
+		p:P645 <#genomic-location-provenance>+;
 	)* ;					
- 	p:P1057	@gw:P1057-chromosome* ;
+ 	p:P1057	<#P1057-chromosome>* ;
 	 
   	# P3354 = positive therapeutic predictor
- 	p:P3354 @gw:P3354-positive-therapeutic-predictor* ;
+ 	p:P3354 <#P3354-positive-therapeutic-predictor>* ;
 			
   	# P3355 = negative therapeutic predictor
- 	p:P3355 @gw:P3355-negative-therapeutic-predictor* ;
+ 	p:P3355 <#P3355-negative-therapeutic-predictor>* ;
 	
   	# P3356 = positive diagnostic predictor
- 	p:P3356 @gw:P3356-positive-diagnostic-predictor* ;
+ 	p:P3356 <#P3356-positive-diagnostic-predictor>* ;
 			
   	# P3357 = negative diagnostic predictor
- 	p:P3357 @gw:P3357-negative-diagnostic-predictor* ;
+ 	p:P3357 <#P3357-negative-diagnostic-predictor>* ;
 			
   	# P3358 = positive prognostic predictor
- 	p:P3358 @gw:P3358-positive-prognostic-predictor* ;
+ 	p:P3358 <#P3358-positive-prognostic-predictor>* ;
 			
   	# P3359 = negative prognostic predictor
- 	p:P3359 @gw:P3359-negative-prognostic-predictor* ;
+ 	p:P3359 <#P3359-negative-prognostic-predictor>* ;
 
 ## IDENTIFIERS
 
  	# P3329 = CIViCid
- 	p:P3329 @gw:P3329-civicid ;
+ 	p:P3329 <#P3329-civicid> ;
 } 
 
 gw:P31_instance_of { 
             ps:P31	[ wd:Q15304597 ] ; # Q15304597 = sequence variant
-	        prov:wasDerivedFrom @gw:civic-variant-reference;
+	        prov:wasDerivedFrom <#civic-variant-reference>;
 		  } 
 
 gw:P279_subclass_of { 
-	        ps:P279	@gw:variant_type ;
-	        prov:wasDerivedFrom @gw:civic-variant-reference;
+	        ps:P279	<#variant_type> ;
+	        prov:wasDerivedFrom <#civic-variant-reference>;
 		  } 
 
 gw:P3343-biological-variant-of{ 
-	        ps:P3343	@gw:human_gene ;
-	        prov:wasDerivedFrom @gw:civic-variant-reference;
+	        ps:P3343	<#human_gene> ;
+	        prov:wasDerivedFrom <#civic-variant-reference>;
 		    } 
 
 gw:P1057-chromosome {
- 	   ps:P1057 @gw:human-chromosomes ;
- 	   pq:P659	@gw:genomic-assembly+ ;  
- 	   prov:wasDerivedFrom @gw:civic-variant-reference+ ;   
+ 	   ps:P1057 <#human-chromosomes> ;
+ 	   pq:P659	<#genomic-assembly>+ ;  
+ 	   prov:wasDerivedFrom <#civic-variant-reference>+ ;   
  	} 
 
 gw:P3354-positive-therapeutic-predictor { 
-	          ps:P3354	@gw:pharmaceutical_drug ;
+	          ps:P3354	<#pharmaceutical_drug> ;
 	          # P2175 = medical condition treated 
-	 		  pq:P2175	@gw:wikidata-disease ;
- 	          prov:wasDerivedFrom @gw:wikicite+ ;
+	 		  pq:P2175	<#wikidata-disease> ;
+ 	          prov:wasDerivedFrom <#wikicite>+ ;
 			} 
 
 gw:P3355-negative-therapeutic-predictor { 
-	          ps:P3355	@gw:pharmaceutical_drug ;
+	          ps:P3355	<#pharmaceutical_drug> ;
 	          # P2175 = medical condition treated 
-	 		  pq:P2175	@gw:wikidata-disease ;
- 	          prov:wasDerivedFrom @gw:wikicite+ ;
+	 		  pq:P2175	<#wikidata-disease> ;
+ 	          prov:wasDerivedFrom <#wikicite>+ ;
 			} 
 gw:P3356-positive-diagnostic-predictor { 
-	          ps:P3356	@gw:wikidata-disease ;
- 	          prov:wasDerivedFrom @gw:wikicite+;
+	          ps:P3356	<#wikidata-disease> ;
+ 	          prov:wasDerivedFrom <#wikicite>+;
 			}
 
 gw:P3357-negative-diagnostic-predictor { 
-	          ps:P3356	@gw:wikidata-disease ;
- 	          prov:wasDerivedFrom @gw:wikicite+;
+	          ps:P3356	<#wikidata-disease> ;
+ 	          prov:wasDerivedFrom <#wikicite>+;
 			}
 gw:P3358-positive-prognostic-predictor { 
-	          ps:P3358	@gw:wikidata-disease ;
- 	          prov:wasDerivedFrom @gw:wikicite+;
+	          ps:P3358	<#wikidata-disease> ;
+ 	          prov:wasDerivedFrom <#wikicite>+;
 			}
 gw:P3359-negative-prognostic-predictor {
-			  ps:P3359  @gw:wikidata-disease ;
-			  prov:wasDerivedFrom @gw:wikicite+ ;
+			  ps:P3359  <#wikidata-disease> ;
+			  prov:wasDerivedFrom <#wikicite>+ ;
 }
 
 gw:P3329-civicid { 
 	ps:P3329	LITERAL ;
-	prov:wasDerivedFrom @gw:civic-variant-reference; 
+	prov:wasDerivedFrom <#civic-variant-reference>; 
 }
 
 gw:civic-variant-reference {
@@ -127,9 +127,9 @@ gw:civic-evidence-reference {
 } 
 
 gw:genomic-location-provenance {
-	pq:P1057	@gw:human-chromosomes+ ;	
-	pq:P659	@gw:genomic-assembly+ ;
-	prov:wasDerivedFrom @gw:ensembl-gene-reference+ ;  
+	pq:P1057	<#human-chromosomes>+ ;	
+	pq:P659	<#genomic-assembly>+ ;
+	prov:wasDerivedFrom <#ensembl-gene-reference>+ ;  
 } 
 
 gw:ensembl-gene-reference {
@@ -139,7 +139,7 @@ gw:ensembl-gene-reference {
 }
 
 gw:civic_reference {
-	pr:P248	@gw:wikicite ;
+	pr:P248	<#wikicite> ;
 	pr:P813	xsd:dateTime ;
 	pr:P854	IRI ;
 } 
@@ -153,12 +153,12 @@ gw:wikicite {
 gw:pharmaceutical_drug {
     # P31 = instance of & wd:Q12140 = Pharmaceutical drug
  	p:P31 { ps:P31	[wd:Q12140] ;
- 	          prov:wasDerivedFrom @gw:civic-evidence-reference+ ;
+ 	          prov:wasDerivedFrom <#civic-evidence-reference>+ ;
 			}* ;
 			
     # P274 = chemical formula
  	p:P274 { ps:P274	LITERAL ;
- 	          prov:wasDerivedFrom @gw:pubchem-compound-reference+ ;
+ 	          prov:wasDerivedFrom <#pubchem-compound-reference>+ ;
 			}* ;
 } 
 
