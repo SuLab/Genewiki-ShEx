@@ -10,46 +10,44 @@ PREFIX pr:  <http://www.wikidata.org/prop/reference/>
 PREFIX ps: <http://www.wikidata.org/prop/statement/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <http://schema.org/> 
-PREFIX gw: <http://micel.io/genewiki/>
-PREFIX po: <http://micel.io/pathway_ontology/>
 PREFIX po_obo: <http://purl.obolibrary.org/obo/>
 PREFIX wikicite: <http://micel.io/wikicite/>
 PREFIX wpidorg: <http://identifiers.org/wikipathways/>
 
-start = @gw:wikidata-wp-pathway
+start = @<#wikidata-wp-pathway>
 
-gw:wikidata-wp-pathway {
+<#wikidata-wp-pathway> {
 	# Statements 
-    p:P31 @gw:P31_pathway_ontology_term ;
-    p:P527 @gw:P527_has_part* ;
-    p:P2860 @gw:P2860_cites* ;
-    p:P2888 @gw:P2888_exact_match* ;
+    p:P31 @<#P31_pathway_ontology_term> ;
+    p:P527 @<#P527_has_part>* ;
+    p:P2860 @<#P2860_cites>* ;
+    p:P2888 @<#P2888_exact_match>* ;
 
     # Identifiers
-    p:P2410 @gw:wikipathway-identifier ;
+    p:P2410 @<#wikipathway-identifier> ;
 }
 
-gw:P31_pathway_ontology_term {
-	ps:P31 @po:pathway_ontology ;
-	prov:wasDerivedFrom @gw:wikipathway_reference ;
+<#P31_pathway_ontology_term> {
+	ps:P31 @<#pathway_ontology> ;
+	prov:wasDerivedFrom @<#wikipathway_reference> ;
 }
-po:pathway_ontology {
+<#pathway_ontology> {
 	p:P2888 {
 		ps:P2888 [po_obo:~] ;
 	}
 }
 
-gw:wikipathway-identifier {
+<#wikipathway-identifier> {
 	ps:P2410  LITERAL  /^WP[0-9]+$/;
-	prov:wasDerivedFrom @gw:wikipathway_reference ;
+	prov:wasDerivedFrom @<#wikipathway_reference> ;
 }
 
-gw:P527_has_part {
-	ps:P527   @gw:pathway_part* ;
-	prov:wasDerivedFrom @gw:wikipathway_reference ;
+<#P527_has_part> {
+	ps:P527   @<#pathway_part>* ;
+	prov:wasDerivedFrom @<#wikipathway_reference> ;
 }
 
-gw:pathway_part EXTRA p:P31 {
+<#pathway_part> EXTRA p:P31 {
      p:P31  {
          ps:P31 [
                     wd:Q7187  # gene
@@ -60,11 +58,11 @@ gw:pathway_part EXTRA p:P31 {
     }+
 }
 
-gw:P2860_cites {
-	ps:P2860  @wikicite:entry ;
-	prov:wasDerivedFrom @gw:wikipathway_reference ;
+<#P2860_cites> {
+	ps:P2860  @<#wikicite_entry> ;
+	prov:wasDerivedFrom @<#wikipathway_reference> ;
 }
-wikicite:entry {
+<#wikicite_entry> {
      p:P31 {
         ps:P31 [
                  wd:Q13442814 # scientific article
@@ -72,15 +70,15 @@ wikicite:entry {
         }
 }
 
-gw:P2888_exact_match {
+<#P2888_exact_match> {
 	ps:P2888   [ 
                         wpidorg:~
          ] ;
-	prov:wasDerivedFrom @gw:wikipathway_reference ;
+	prov:wasDerivedFrom @<#wikipathway_reference> ;
 }
 
 ## REFERENCES
-gw:wikipathway_reference {
+<#wikipathway_reference> {
 	pr:P248  [wd:Q7999828] ;
 	pr:P813	xsd:dateTime ;
 	pr:P2410  LITERAL  /^WP[0-9]+$/;
