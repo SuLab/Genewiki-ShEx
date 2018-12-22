@@ -10,7 +10,7 @@ PREFIX pr:  <http://www.wikidata.org/prop/reference/>
 PREFIX ps: <http://www.wikidata.org/prop/statement/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <http://schema.org/> 
-PREFIX po_obo: <http://purl.obolibrary.org/obo/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX wikicite: <http://micel.io/wikicite/>
 PREFIX wpidorg: <http://identifiers.org/wikipathways/>
 
@@ -28,13 +28,8 @@ start = @<#wikidata-wp-pathway>
 }
 
 <#P31_pathway_ontology_term> {
-	ps:P31 @<#pathway_ontology> ;
+	ps:P31 [wd:Q4915012] ;
 	prov:wasDerivedFrom @<#wikipathway_reference> ;
-}
-<#pathway_ontology> {
-	p:P2888 {
-		ps:P2888 [po_obo:~] ;
-	}
 }
 
 <#wikipathway-identifier> {
@@ -50,8 +45,8 @@ start = @<#wikidata-wp-pathway>
 <#pathway_part> EXTRA p:P31 {
      p:P31  {
          ps:P31 [
-                    wd:Q7187  # gene
-                    wd:Q8054     # protein
+                    wd:Q7187   # gene
+                    wd:Q8054   # protein
                     wd:Q11173  # chemical compound
                     wd:Q12140  # drug                
                 ]
