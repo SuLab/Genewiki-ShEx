@@ -1,4 +1,5 @@
 BASE <https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/master/variants/wikidata-cancer-variant.shex>
+
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX schema: <http://schema.org/>
@@ -24,40 +25,26 @@ start = @<#wikidata-civic-variant-record>
 		p:P645 <#genomic-location-provenance>+;
 	)* ;
 
- 	p:P1057	<#P1057-chromosome>* ;
-	 
-  	# P3354 = positive therapeutic predictor
- 	p:P3354 <#P3354-positive-therapeutic-predictor>* ;
-			
-  	# P3355 = negative therapeutic predictor
- 	p:P3355 <#P3355-negative-therapeutic-predictor>* ;
-	
-  	# P3356 = positive diagnostic predictor
- 	p:P3356 <#P3356-positive-diagnostic-predictor>* ;
-			
-  	# P3357 = negative diagnostic predictor
- 	p:P3357 <#P3357-negative-diagnostic-predictor>* ;
-			
-  	# P3358 = positive prognostic predictor
- 	p:P3358 <#P3358-positive-prognostic-predictor>* ;
-			
-  	# P3359 = negative prognostic predictor
- 	p:P3359 <#P3359-negative-prognostic-predictor>* ;
+ 	p:P1057	<#P1057-chromosome>* ;	 
+ 	p:P3354 <#P3354-positive-therapeutic-predictor>* ; # P3354 = positive therapeutic predictor			
+ 	p:P3355 <#P3355-negative-therapeutic-predictor>* ; # P3355 = negative therapeutic predictor
+ 	p:P3356 <#P3356-positive-diagnostic-predictor>* ; # P3356 = positive diagnostic predictor	
+ 	p:P3357 <#P3357-negative-diagnostic-predictor>* ; # P3357 = negative diagnostic predictor
+ 	p:P3358 <#P3358-positive-prognostic-predictor>* ; # P3358 = positive prognostic predictor
+ 	p:P3359 <#P3359-negative-prognostic-predictor>* ; # P3359 = negative prognostic predictor
 
-## IDENTIFIERS
-
- 	# P3329 = CIViCid
- 	p:P3329 <#P3329-civicid> ;
+## IDENTIFIERS	
+ 	p:P3329 <#P3329-civicid> ; # P3329 = CIViCid
 } 
 
 <#P31_instance_of> { 
             ps:P31	@<#variant_types> ;
 	        prov:wasDerivedFrom <#civic-variant-reference>;
 		  } 
-<#variant_types> [
-   wd:Q15304597   # Q15304597 = sequence variant
-   wd:Q28419128 # Q28419128 = transcript fusion
-]
+
+<#variant_types> {
+	wdt:P3986 .
+}
 
 <#P279_subclass_of> { 
 	        ps:P279	<#variant_type> ;
