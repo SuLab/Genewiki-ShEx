@@ -9,12 +9,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
 PREFIX pr:  <http://www.wikidata.org/prop/reference/>
 PREFIX ps: <http://www.wikidata.org/prop/statement/>
-PREFIX gw: <http://micel.io/genewiki/>
-PREFIX protein: <http://micel.io/genewiki/protein>
 PREFIX interpro: <http://micel.io/genewiki/interpro/>
-PREFIX reference: <http://micel.io/models/genewiki/references/> 
 
-start = @gw:wikidata_human_protein
+
+start = @<#wikidata_human_protein>
 
 # wikidata-human protein is the main shape for a human protein data model in Wikidata. Each line between the brackets
 # represents the structure that can be enforced to validate human protein annotations in Wikidata
@@ -24,101 +22,101 @@ start = @gw:wikidata_human_protein
 # external identifiers, erronuous statements are those that are errors.
 #
 
-gw:wikidata_human_protein {
+<#wikidata_human_protein> {
 	# STATEMENTS
-	p:P31 @protein:P31_instance_of ;
-	p:P279 @protein:P279_subclass_of_protein+ ;
-	p:P361 @protein:P361_part_of* ;
-	p:P527 @protein:P527_has_part* ;
-	p:P680 @protein:P680_molecular_function* ;
-	p:P681 @protein:P681_cell_component* ;
-	p:P682 @protein:P682_biological_process* ;
-	p:P702 @protein:P702_encoded_by ;
-	p:P703 @protein:P703_found_in_taxon_human ;
-	p:P1910 @protein:P1910_decreased_expression_in* ;
+	p:P31 @<#P31_instance_of> ;
+	p:P279 @<#P279_subclass_of_protein>+ ;
+	p:P361 @<#P361_part_of>* ;
+	p:P527 @<#P527_has_part>* ;
+	p:P680 @<#P680_molecular_function>* ;
+	p:P681 @<#P681_cell_component>* ;
+	p:P682 @<#P682_biological_process>* ;
+	p:P702 @<#P702_encoded_by> ;
+	p:P703 @<#P703_found_in_taxon_human> ;
+	p:P1910 @<#P1910_decreased_expression_in>* ;
 
 	# IDENTIFIERS
-	p:P352 @protein:P352_uniprot_id+ ;
-	p:P705 @protein:P705_ensembl_protein_id* ;
-	p:P637 @protein:P637_RefSeq_Protein_ID* ; 
-        p:P639 @protein:P639_RefSeq_RNA_ID* ; # Currently, we decided to model this, but change in the future if we find a more acurate representation
+	p:P352 @<#P352_uniprot_id>+ ;
+	p:P705 @<#P705_ensembl_protein_id>* ;
+	p:P637 @<#P637_RefSeq_Protein_ID>* ; 
+        p:P639 @<#P639_RefSeq_RNA_ID>* ; # Currently, we decided to model this, but change in the future if we find a more acurate representation
 	# A protein item should never have the following Identifiers
-	p:P351 @protein:P351_ncbi_gene_id{0} ;
-	p:P594 @protein:P594_ensembl_gene_id{0} ;
+	p:P351 @<#P351_ncbi_gene_id>{0} ;
+	p:P594 @<#P594_ensembl_gene_id>{0} ;
 }
 
 # Shape expressions for Wikidata statements
 
-protein:P31_instance_of {
+<#P31_instance_of> {
 	ps:P31 [wd:Q8054] ;
-	prov:wasDerivedFrom @reference:protein_reference;
+	prov:wasDerivedFrom @<#protein_reference>;
 }
 
-protein:P279_subclass_of_protein { 
+<#P279_subclass_of_protein> { 
     ps:P279 [wd:Q8054] ;
-	prov:wasDerivedFrom @reference:protein_reference;
+	prov:wasDerivedFrom @<#protein_reference>;
 } 
 
 
-protein:P352_uniprot_id {
+<#P352_uniprot_id> {
 	ps:P352 LITERAL ;
-	prov:wasDerivedFrom @reference:protein_reference;
+	prov:wasDerivedFrom @<#protein_reference>;
 }
 
-protein:P361_part_of {
-	ps:P361 @gw:InterproFamily ;
-	prov:wasDerivedFrom @reference:protein_reference;
+<#P361_part_of> {
+	ps:P361 @<#InterproFamily> ;
+	prov:wasDerivedFrom @<#protein_reference>;
 }
 
-protein:P527_has_part {
-	ps:P527 @gw:InterproFamily ;
-	prov:wasDerivedFrom @reference:protein_reference;
+<#P527_has_part> {
+	ps:P527 @<#InterproFamily> ;
+	prov:wasDerivedFrom @<#protein_reference>;
 }
 
-protein:P637_RefSeq_Protein_ID {
+<#P637_RefSeq_Protein_ID> {
 	ps:P637 LITERAL ;
-	prov:wasDerivedFrom @reference:protein_reference;
+	prov:wasDerivedFrom @<#protein_reference;
 }
 
-protein:P680_molecular_function {
+<#P680_molecular_function> {
 	ps:P680 @<molecular_function> ;
 	pq:P459 @<determination_method> ;
-	prov:wasDerivedFrom @reference:protein_reference;
+	prov:wasDerivedFrom @<#protein_reference;
 }
-protein:P681_cell_component {
+<#P681_cell_component> {
 	ps:P681 @<cell_component> ;
 	pq:P459 @<determination_method> ;
-	prov:wasDerivedFrom @reference:protein_reference;
+	prov:wasDerivedFrom @<#protein_reference;
 }
-protein:P682_biological_process {
+<#P682_biological_process> {
 	ps:P682 @<biological_process> ;
 	pq:P459 @<determination_method> ;
-	prov:wasDerivedFrom @reference:protein_reference;
+	prov:wasDerivedFrom @<#protein_reference;
 }
 
-protein:P639_RefSeq_RNA_ID {
+<#P639_RefSeq_RNA_ID> {
 	ps:P637 LITERAL ;
-	prov:wasDerivedFrom @reference:protein_reference;
+	prov:wasDerivedFrom @<#protein_reference;
 }
 
-<molecular_function> {
+<#molecular_function> {
     p:P31{
     	ps:P31   [wd:Q14860489]
     }
 }
 
-<cell_component> {
+<#cell_component> {
     p:P31{
     	ps:P31   [wd:Q5058355]
     }
 }
-<biological_process> {
+<#biological_process> {
     p:P31{
     	ps:P31   [wd:Q2996394]
     }
 }
 
-<determination_method> [
+<#determination_method> [
   wd:Q23174122	
 wd:Q23174671	
 wd:Q23174952	
@@ -141,55 +139,55 @@ wd:Q23190850
 wd:Q23190826
 ]
 
-protein:P702_encoded_by {	
-     ps:P702 @gw:human_gene ;
-	 prov:wasDerivedFrom @reference:protein_reference+ 
+<#P702_encoded_by> {	
+     ps:P702 @<#human_gene> ;
+	 prov:wasDerivedFrom @<#protein_reference+ 
 } 
 
-protein:P703_found_in_taxon_human {	
+<#P703_found_in_taxon_human> {	
      ps:P703 [wd:Q15978631] ;
-	 prov:wasDerivedFrom @reference:protein_reference+ 
+	 prov:wasDerivedFrom @<#protein_reference+ 
 }
 
-protein:P1910_decreased_expression_in {
-	ps:P1910 @gw:disease ;
-	pq:P459 @gw:determination_method ;
-	prov:wasDerivedFrom @reference:literature_reference+
+<#P1910_decreased_expression_in> {
+	ps:P1910 @<#disease> ;
+	pq:P459 @<#determination_method> ;
+	prov:wasDerivedFrom @<#literature_reference+
 } 
 
 # REFERENCES
 
-reference:protein_reference @reference:uniprot_reference OR  
-	@reference:literature_reference 
+<#protein_reference> @<#uniprot_reference> OR  
+	@<#literature_reference> 
 
-reference:uniprot_reference {
+<#uniprot_reference> {
 	pr:P248	[wd:Q905695] ;
 	pr:P352	LITERAL ;
 	pr:P813	xsd:dateTime ;
 }
 
-reference:interpro_reference {
-	pr:P248	@interpro:release ;
+<#interpro_reference> {
+	pr:P248	@<#interpro_release> ;
 	pr:P854 IRI ;
 }
 
-reference:literature_reference {
-	pr:P248 @gw:wikicite ;
+<#literature_reference> {
+	pr:P248 @<#wikicite> ;
 	pr:P813 xsd:dateTime ;
 	pr:P854 IRI ;
 }
 
-interpro:release {
+<#interpro_release> {
 	p:P629 {
 		ps:P629	[wd:Q3047275] ;
 	}
 }
 
 # Subgraphs
-gw:human_gene {
+<#human_gene> {
 	p:P31 {
 		ps:P31 [wd:Q7187]
 	}
 }
 
-gw:InterproFamily .
+<#InterproFamily> .
