@@ -12,7 +12,6 @@ PREFIX pr:  <http://www.wikidata.org/prop/reference/>
 PREFIX ps: <http://www.wikidata.org/prop/statement/>
 PREFIX interpro: <http://micel.io/genewiki/interpro/>
 
-
 start = @<#wikidata_human_protein>
 
 # wikidata-human protein is the main shape for a human protein data model in Wikidata. Each line between the brackets
@@ -40,7 +39,7 @@ start = @<#wikidata_human_protein>
 	p:P352 @<#P352_uniprot_id>+ ;
 	p:P705 @<#P705_ensembl_protein_id>* ;
 	p:P637 @<#P637_RefSeq_Protein_ID>* ; 
-        p:P639 @<#P639_RefSeq_RNA_ID>* ; # Currently, we decided to model this, but change in the future if we find a more acurate representation
+    p:P639 @<#P639_RefSeq_RNA_ID>* ; # Currently, we decided to model this, but change in the future if we find a more acurate representation
 	# A protein item should never have the following Identifiers
 	p:P351 @<#P351_ncbi_gene_id>{0} ;
 	p:P594 @<#P594_ensembl_gene_id>{0} ;
@@ -80,18 +79,18 @@ start = @<#wikidata_human_protein>
 }
 
 <#P680_molecular_function> {
-	ps:P680 @<molecular_function> ;
-	pq:P459 @<determination_method> ;
+	ps:P680 @<#molecular_function> ;
+	pq:P459 @<#determination_method> ;
 	prov:wasDerivedFrom @<#protein_reference>;
 }
 <#P681_cell_component> {
-	ps:P681 @<cell_component> ;
-	pq:P459 @<determination_method> ;
+	ps:P681 @<#cell_component> ;
+	pq:P459 @<#determination_method> ;
 	prov:wasDerivedFrom @<#protein_reference>;
 }
 <#P682_biological_process> {
-	ps:P682 @<biological_process> ;
-	pq:P459 @<determination_method> ;
+	ps:P682 @<#biological_process> ;
+	pq:P459 @<#determination_method> ;
 	prov:wasDerivedFrom @<#protein_reference>;
 }
 
@@ -156,6 +155,20 @@ wd:Q23190826
 	prov:wasDerivedFrom @<#literature_reference>+
 } 
 
+<#disease> {
+	wdt:P699 LITERAL ;
+}
+
+# Identifiers
+<#P705_ensembl_protein_id> {
+	ps:P705 LITERAL ;
+	prov:wasDerivedFrom @<#protein_reference> ;
+}
+
+<#P351_ncbi_gene_id> .
+
+<#P594_ensembl_gene_id> .
+
 # REFERENCES
 
 <#protein_reference> @<#uniprot_reference> OR  
@@ -178,9 +191,17 @@ wd:Q23190826
 	pr:P854 IRI ;
 }
 
+<#wikicite> {
+	wdt:P31 [wd:Q13442814] ;
+}
+
 <#interpro_release> {
 	p:P629 {
-		ps:P629	[wd:Q3047275] ;
+		ps:P629	[
+		  wd:Q3047275
+		  wd:Q58943792
+		  wd:Q3331189
+		] ;
 	}
 }
 
