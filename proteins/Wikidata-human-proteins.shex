@@ -12,7 +12,7 @@ PREFIX pr:  <http://www.wikidata.org/prop/reference/>
 PREFIX ps: <http://www.wikidata.org/prop/statement/>
 PREFIX interpro: <http://micel.io/genewiki/interpro/>
 
-start = @<#wikidata_human_protein>
+start = @<#wikidata-human-protein>
 
 # wikidata-human protein is the main shape for a human protein data model in Wikidata. Each line between the brackets
 # represents the structure that can be enforced to validate human protein annotations in Wikidata
@@ -22,7 +22,7 @@ start = @<#wikidata_human_protein>
 # external identifiers, erronuous statements are those that are errors.
 #
 
-<#wikidata_human_protein> {
+<#wikidata-human-protein> {
 	# STATEMENTS
 	p:P31 @<#P31_instance_of> ;
 	p:P279 @<#P279_subclass_of_protein>+ ;
