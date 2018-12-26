@@ -4,7 +4,7 @@
         "schemaURL": "https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/master/proteins/Wikidata-human-proteins.shex",
         "dataLabel": "Get 100 human protein Items from Wikidata" ,
         "data": "Endpoint: https://query.wikidata.org/sparql",
-        "queryMap": "SPARQL '''PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT ?item WHERE { ?item wdt:P352 ?uniprotid ; wdt:P703 wd:Q15978631  .}'''@START",
+        "queryMap": "SPARQL '''PREFIX wdt: <http://www.wikidata.org/prop/direct/>\n\nSELECT ?item ?id WHERE { ?item wdt:P352 ?id ; wdt:P703 wd:Q15978631  .}'''@START",
         "status": "conformant"
     }
 ]
