@@ -46,12 +46,12 @@ start = @<#wikidata-human-protein>
 
 <#P31_instance_of> {
 	ps:P31 [wd:Q8054] ;
-	prov:wasDerivedFrom @<#protein_reference>;
+	prov:wasDerivedFrom IRI>;
 }
  
 <#P352_uniprot_id> {
 	ps:P352 LITERAL ;
-	prov:wasDerivedFrom @<#protein_reference>;
+	prov:wasDerivedFrom IRI>;
 }
 
 <#P361_part_of> {
@@ -61,33 +61,33 @@ start = @<#wikidata-human-protein>
 
 <#P527_has_part> {
 	ps:P527 IRI ;
-	prov:wasDerivedFrom @<#protein_reference>;
+	prov:wasDerivedFrom IRI>;
 }
 
 <#P637_RefSeq_Protein_ID> {
 	ps:P637 LITERAL ;
-	prov:wasDerivedFrom @<#protein_reference>;
+	prov:wasDerivedFrom IRI>;
 }
 
 <#P680_molecular_function> {
 	ps:P680 @<#molecular_function> ;
 	pq:P459 @<#determination_method>+ ;
-	prov:wasDerivedFrom @<#protein_reference>+;
+	prov:wasDerivedFrom IRI>+;
 }
 <#P681_cell_component> {
 	ps:P681 @<#cell_component> ;
 	pq:P459 @<#determination_method>+ ;
-	prov:wasDerivedFrom @<#protein_reference>+;
+	prov:wasDerivedFrom IRI>+;
 }
 <#P682_biological_process> {
 	ps:P682 @<#biological_process> ;
 	pq:P459 @<#determination_method>+ ;
-	prov:wasDerivedFrom @<#protein_reference>+;
+	prov:wasDerivedFrom IRI>+;
 }
 
 <#P639_RefSeq_RNA_ID> {
 	ps:P637 LITERAL ;
-	prov:wasDerivedFrom @<#protein_reference>;
+	prov:wasDerivedFrom IRI>;
 }
 
 <#molecular_function> {
@@ -132,18 +132,18 @@ wd:Q23190826
 
 <#P702_encoded_by> {	
      ps:P702 @<#human_gene> ;
-	 prov:wasDerivedFrom @<#protein_reference>+ 
+	 prov:wasDerivedFrom IRI>+ 
 } 
 
 <#P703_found_in_taxon_human> {	
      ps:P703 [wd:Q15978631] ;
-	 prov:wasDerivedFrom @<#protein_reference>+ 
+	 prov:wasDerivedFrom IRI+ 
 }
 
 <#P1910_decreased_expression_in> {
 	ps:P1910 @<#disease> ;
 	pq:P459 @<#determination_method> ;
-	prov:wasDerivedFrom @<#literature_reference>+
+	prov:wasDerivedFrom IRI+
 } 
 
 <#disease> {
@@ -153,14 +153,14 @@ wd:Q23190826
 # Identifiers
 <#P705_ensembl_protein_id> {
 	ps:P705 LITERAL ;
-	prov:wasDerivedFrom @<#protein_reference> ;
+	prov:wasDerivedFrom IRI> ;
 }
 
 
 # REFERENCES
 
-<#protein_reference> @<#uniprot_reference> OR  
-	@<#literature_reference> 
+#<#protein_reference> @<#uniprot_reference> OR  
+#	@<#literature_reference> 
 
 <#uniprot_reference> {
 	pr:P248	[
