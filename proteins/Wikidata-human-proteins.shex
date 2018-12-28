@@ -25,7 +25,6 @@ start = @<#wikidata-human-protein>
 <#wikidata-human-protein> {
 	# STATEMENTS
 	p:P31 @<#P31_instance_of> ;
-	p:P279 @<#P279_subclass_of_protein>+ ;
 	p:P361 @<#P361_part_of>* ;
 	p:P527 @<#P527_has_part>* ;
 	p:P680 @<#P680_molecular_function>* ;
@@ -51,13 +50,7 @@ start = @<#wikidata-human-protein>
 	ps:P31 [wd:Q8054] ;
 	prov:wasDerivedFrom @<#protein_reference>;
 }
-
-<#P279_subclass_of_protein> { 
-    ps:P279 [wd:Q8054] ;
-	prov:wasDerivedFrom @<#protein_reference>;
-} 
-
-
+ 
 <#P352_uniprot_id> {
 	ps:P352 LITERAL ;
 	prov:wasDerivedFrom @<#protein_reference>;
@@ -65,7 +58,7 @@ start = @<#wikidata-human-protein>
 
 <#P361_part_of> {
 	ps:P361 @<#InterproFamily> ;
-	prov:wasDerivedFrom @<#protein_reference>;
+	prov:wasDerivedFrom @<#interpro_reference>;
 }
 
 <#P527_has_part> {
@@ -81,17 +74,17 @@ start = @<#wikidata-human-protein>
 <#P680_molecular_function> {
 	ps:P680 @<#molecular_function> ;
 	pq:P459 @<#determination_method> ;
-	prov:wasDerivedFrom @<#protein_reference>;
+	prov:wasDerivedFrom @<#protein_reference>+;
 }
 <#P681_cell_component> {
 	ps:P681 @<#cell_component> ;
 	pq:P459 @<#determination_method> ;
-	prov:wasDerivedFrom @<#protein_reference>;
+	prov:wasDerivedFrom @<#protein_reference>+;
 }
 <#P682_biological_process> {
 	ps:P682 @<#biological_process> ;
 	pq:P459 @<#determination_method> ;
-	prov:wasDerivedFrom @<#protein_reference>;
+	prov:wasDerivedFrom @<#protein_reference>+;
 }
 
 <#P639_RefSeq_RNA_ID> {
@@ -171,13 +164,20 @@ wd:Q23190826
 
 # REFERENCES
 
-<#protein_reference> @<#uniprot_reference> OR  
-	@<#literature_reference> 
+<#protein_reference> .
+#<#protein_reference> @<#uniprot_reference> OR  
+#	@<#literature_reference> 
 
 <#uniprot_reference> {
-	pr:P248	[wd:Q905695] ;
+	pr:P248	[
+	    wd:Q905695
+	    wd:Q58943792 
+	    wd:Q28018111
+	] ;
 	pr:P352	LITERAL ;
 	pr:P813	xsd:dateTime ;
+	pr:P854 IRI? ;
+	pr:P1640 wd:Q905695? ;
 }
 
 <#interpro_reference> {
