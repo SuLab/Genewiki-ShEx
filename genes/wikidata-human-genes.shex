@@ -8,9 +8,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX prv: <http://www.wikidata.org/prop/reference/value/>
 PREFIX pr:  <http://www.wikidata.org/prop/reference/>
 PREFIX ps: <http://www.wikidata.org/prop/statement/>
-PREFIX gw: <http://micel.io/genewiki/>
 
-start = @gw:wikidata-human-gene
+start = <#wikidata-human-gene>
 
 # Indicates which shape to use to start iterating over the graph if none is provided.
 
@@ -22,37 +21,37 @@ start = @gw:wikidata-human-gene
 # external identifiers, erronuous statements are those that are errors.
 #
 
-gw:wikidata-human-gene {
+<#wikidata-human-gene> {
     # VALUE STATEMENTS
-	  p:P31 @gw:P31_instance_of_gene ; # Item describes a gene
+	  p:P31 @<#P31_instance_of_gene> ; # Item describes a gene
     
     # below is a special shape used to express that both the genomic start and genomic end properties are not mandatory
     # however if one does exist, the other one is requires. The * behind the brackets indicates the 0 or more carinality
     # that expresses the requirement that both properties are not mandatory.
 	(
-		p:P644 @gw:P644_genomic_start ; # Its genomic start location
-		p:P645 @gw:P645_genomic_end ; # Its genomic end location
+		p:P644 @<#P644_genomic_start> ; # Its genomic start location
+		p:P645 @<#P645_genomic_end> ; # Its genomic end location
 	)* ; # Zero or more start and end locations.
 
-	p:P684 @gw:P684_ortholog* ; # Zero or more known orthologs.
-	p:P688 @gw:P688_encodes* ; # Zero or more known geneproducts.
-	p:P703 @gw:P703_found_in_taxon_human ; # In which taxonomy and where in that taxonomy this gene is found
-	p:P1057 @gw:P1057_chromosome* ;  # Zero or more known chromosomes the gene is located on.
-	p:P2888 @gw:P2888_exact_match+ ; # One or more external Internationalized Resource Identifiers of a node on the
+	p:P684 @<#P684_ortholog>* ; # Zero or more known orthologs.
+	p:P688 @<#P688_encodes>* ; # Zero or more known geneproducts.
+	p:P703 @<#P703_found_in_taxon_human> ; # In which taxonomy and where in that taxonomy this gene is found
+	p:P1057 @<#P1057_chromosome>* ;  # Zero or more known chromosomes the gene is located on.
+	p:P2888 @<#P2888_exact_match>+ ; # One or more external Internationalized Resource Identifiers of a node on the
 	                                # semantic web, describing the same concept as linked data.
-	p:P2548 @gw:P2548_strand_orientation ; # Its strand orrientation
+	p:P2548 @<#P2548_strand_orientation> ; # Its strand orrientation
 	
 	# IDENTIFIER STATEMENTS
-	p:P351 @gw:P351_ncbi_gene_id ; # Exactly one ncbi gene identifier
-	p:P353 @gw:P353_hgnc_gene_symbol ; # Exactly one hgnc gene symbol
-	p:P354 @gw:P354_hgnc_gene_id ; # Exactly one hgnc gene identifier
-	p:P594 @gw:P594_ensembl_gene_id* ; # Zero or more Ensembl gene identifier
-	p:P639 @gw:P639_refseq_rna_id* ; # Zero or more RefSeq RNA identifiers
-	p:P704 @gw:P704_ensembl_transcript_id* ; # Zero or more Ensembl Transcript identifiers.
-	p:P593 @gw:P593_homologene_id ; # Exactly one homologene identifier
+	p:P351 @<#P351_ncbi_gene_id> ; # Exactly one ncbi gene identifier
+	p:P353 @<#P353_hgnc_gene_symbol> ; # Exactly one hgnc gene symbol
+	p:P354 @<#P354_hgnc_gene_id> ; # Exactly one hgnc gene identifier
+	p:P594 @<#P594_ensembl_gene_id>* ; # Zero or more Ensembl gene identifier
+	p:P639 @<#P639_refseq_rna_id>* ; # Zero or more RefSeq RNA identifiers
+	p:P704 @<#P704_ensembl_transcript_id>* ; # Zero or more Ensembl Transcript identifiers.
+	p:P593 @<#P593_homologene_id> ; # Exactly one homologene identifier
 
 	# Negative shapes
-	p:P352 @gw:P352_uniprot_id_wor{0} ; # A gene can't have a uniprot identifier.
+	p:P352 @<#P352_uniprot_id_wor>{0} ; # A gene can't have a uniprot identifier.
 }
 
 # Detailed ShExs for Wikidata statements
@@ -67,117 +66,117 @@ gw:wikidata-human-gene {
 #        pr:Pxx "reference value" or <reference_item> .
 ####################
 
-gw:P31_instance_of_gene { 
-   ps:P31 @gw:gene_types ;     # Instance of [P31] gene types
-   prov:wasDerivedFrom @gw:ncbi-gene-reference OR @gw:ensembl-gene-reference ;
+<#P31_instance_of_gene> { 
+   ps:P31 @<#gene_types> ;     # Instance of [P31] gene types
+   prov:wasDerivedFrom @<#ncbi-gene-reference> OR @<#ensembl-gene-reference> ;
 } 
-gw:P279_subclass_of_gene { 
-    ps:P279 @gw:gene_types ; # Subclass of [P279] gene types <gene_types>
-	prov:wasDerivedFrom @gw:ncbi-gene-reference OR @gw:ensembl-gene-reference ;
+<#P279_subclass_of_gene { 
+    ps:P279 @<#gene_types> ; # Subclass of [P279] gene types <gene_types>
+	prov:wasDerivedFrom @<#ncbi-gene-reference> OR @<#ensembl-gene-reference> ;
 } 
 
-gw:P644_genomic_start {
+<#P644_genomic_start> {
    ps:P644 LITERAL ;  # genomic start [P644] value
-   pq:P1057	@gw:human-chromosomes+ ;	 # Qualifier indicating the applicable chromosome [P1057] from a set of
+   pq:P1057	@<#human-chromosomes>+ ;	 # Qualifier indicating the applicable chromosome [P1057] from a set of
                                      #  list Wikidata on chromosomes described below.
-   pq:P659	@gw:genomic-assembly+ ;  # Qualifier indicating the applicable genomic assembly versions.
-   prov:wasDerivedFrom @gw:ensembl-gene-reference ;
+   pq:P659	@<#genomic-assembly>+ ;  # Qualifier indicating the applicable genomic assembly versions.
+   prov:wasDerivedFrom @<#ensembl-gene-reference> ;
 }
 
-gw:P645_genomic_end {
+<#P645_genomic_end {
    ps:P645 LITERAL ; # genomic start [P645] value
-   pq:P1057	@gw:human-chromosomes+ ;	 # Qualifier indicating the applicable chromosome [P1057] from a set of
+   pq:P1057	@<#human-chromosomes>+ ;	 # Qualifier indicating the applicable chromosome [P1057] from a set of
                                      #  list Wikidata on chromosomes described below.
-   pq:P659	@gw:genomic-assembly+ ; # Qualifier indicating the applicable genomic assembly versions.
-   prov:wasDerivedFrom @gw:ensembl-gene-reference ;
+   pq:P659	@<#genomic-assembly>+ ; # Qualifier indicating the applicable genomic assembly versions.
+   prov:wasDerivedFrom @<#ensembl-gene-reference> ;
 }
 	
-gw:P684_ortholog {
+<#P684_ortholog> {
    ps:P684 IRI ; # Known orthologs [P684].
    pq:P703	IRI ; # Qualifier indicating in which taxon the ortholog is found [P703].
-   prov:wasDerivedFrom	@gw:homologene-reference ;
+   prov:wasDerivedFrom	@<#homologene-reference> ;
 }
 
-gw:P688_encodes {
+<#P688_encodes> {
    ps:P688 IRI ; # gene encodes [688] for a gene product.
-   prov:wasDerivedFrom @gw:uniprot-reference;
+   prov:wasDerivedFrom @<#uniprot-reference>;
 }
 
-gw:P703_found_in_taxon_human {	
+<#P703_found_in_taxon_human> {	
    ps:P703 [wd:Q15978631] ; # the gene is found in taxon [P703] human [Q15978631]
-   prov:wasDerivedFrom @gw:ensembl-gene-reference
+   prov:wasDerivedFrom @<#ensembl-gene-reference> ;
 } 
 
-gw:P1057_chromosome {	
-   ps:P1057 @gw:human-chromosomes ; # gene is found on chromosome [P1057]
-   pq:P659	@gw:genomic-assembly+ ; # Qualifier indicating the one or more applicable genomic assembly
-   prov:wasDerivedFrom @gw:ensembl-gene-reference ;
+<#P1057_chromosome> {	
+   ps:P1057 @<#human-chromosomes> ; # gene is found on chromosome [P1057]
+   pq:P659	@<#genomic-assembly>+ ; # Qualifier indicating the one or more applicable genomic assembly
+   prov:wasDerivedFrom @<#ensembl-gene-reference> ;
 }
 	
-gw:P2888_exact_match {
+<#P2888_exact_match> {
    ps:P2888 IRI ; # External IRI which describe the exact same concept [P2888]
-   prov:wasDerivedFrom @gw:miriam_reference OR @gw:ncbi-gene-reference ;
+   prov:wasDerivedFrom @<#miriam_reference> OR @<#ncbi-gene-reference> ;
 }
 
-gw:P2548_strand_orientation {	
-   ps:P2548	@gw:strand-orientation ; # Strand orientation [P2548] of the gene
-   pq:P659	@gw:genomic-assembly+ ; # Qualifier indicating the one or more applicable genomic assembly
-   prov:wasDerivedFrom @gw:ensembl-gene-reference ;
+<#P2548_strand_orientation> {	
+   ps:P2548	@<#strand-orientation> ; # Strand orientation [P2548] of the gene
+   pq:P659	@<#genomic-assembly>+ ; # Qualifier indicating the one or more applicable genomic assembly
+   prov:wasDerivedFrom @<#ensembl-gene-reference> ;
 }
 
-gw:strand-orientation [ # list of wikidata items for both the reverse and forward strand
+<#strand-orientation> [ # list of wikidata items for both the reverse and forward strand
     wd:Q22809711 # reverse strand
     wd:Q22809680 # forward strand
 ]
 	
 ## IDENTIFIERS
-gw:P351_ncbi_gene_id {
+<#P351_ncbi_gene_id> {
 	ps:P351 LITERAL ; # The NCBI gene identifier [P351] for the applicable gene item.
-	prov:wasDerivedFrom @gw:ncbi-gene-reference ;
+	prov:wasDerivedFrom @<#ncbi-gene-reference ;
 }
 
-gw:P352_uniprot_id_wor { # The (non-existent) uniprot identifier [P352] for the applicable gene item.
+<#P352_uniprot_id_wor> { # The (non-existent) uniprot identifier [P352] for the applicable gene item.
     ps:P352 LITERAL ;
 }
 	
-gw:P353_hgnc_gene_symbol {
+<#P353_hgnc_gene_symbol> {
    ps:P353 LITERAL ; # The gene symbol [P353] for the applicable gene item.
-   prov:wasDerivedFrom @gw:ncbi-gene-reference ;
+   prov:wasDerivedFrom @<#ncbi-gene-reference ;
 }
 
-gw:P354_hgnc_gene_id {
+<#P354_hgnc_gene_id> {
    ps:P354 LITERAL ; # The HGNC gene identifier  [P354] for the applicable gene item.
-   prov:wasDerivedFrom @gw:ncbi-gene-reference ;
+   prov:wasDerivedFrom @<#ncbi-gene-reference> ;
 }
 
-gw:P593_homologene_id {
+<#P593_homologene_id> {
    ps:P593 LITERAL ; # The homologene identifier [P593] for the applicable gene item.
-   prov:wasDerivedFrom @gw:ncbi-gene-reference ;
+   prov:wasDerivedFrom @<#ncbi-gene-reference> ;
 }
 	
-gw:P594_ensembl_gene_id {
+<#P594_ensembl_gene_id> {
    ps:P594 LITERAL ; # The Ensembl gene identifier [P594] for the applicable gene item.
-   prov:wasDerivedFrom @gw:ensembl-gene-reference ;
+   prov:wasDerivedFrom @<#ensembl-gene-reference> ;
 }
 
-gw:P639_refseq_rna_id {
+<#P639_refseq_rna_id> {
    ps:P639 LITERAL ; # The RefSeq RNA identifier [P351] for the applicable gene item.
-   prov:wasDerivedFrom @gw:ncbi-gene-reference ;
+   prov:wasDerivedFrom @<#ncbi-gene-reference> ;
 }
 
-gw:P704_ensembl_transcript_id {
+<#P704_ensembl_transcript_id> {
    ps:P704 LITERAL ; # The Ensembl transcript identifier [P704] for the applicable gene item
-   prov:wasDerivedFrom @gw:ensembl-gene-reference OR gw:ncbi-gene-reference ;
+   prov:wasDerivedFrom @<#ensembl-gene-reference> OR <#ncbi-gene-reference> ;
 }
 
 ## REFERENCES
-gw:ncbi-gene-reference { # reference to a NCBI gene record
+<#ncbi-gene-reference> { # reference to a NCBI gene record
   pr:P248   [ wd:Q20641742 ] ; # stated in [P248] NCBI gene [Q20641742]
   pr:P351	LITERAL ; # NCBI gene identifier
   pr:P813	xsd:dateTime ; # Date of retrieval
 }
 
-gw:ensembl-gene-reference {
+<#ensembl-gene-reference> {
   pr:P248	[
          wd:Q30227110 # stated in [P248] Ensembl Release 89 [Q30227110]
          wd:Q46401024 # stated in [P248] Ensembl Release 91 [Q30227110]
@@ -185,24 +184,24 @@ gw:ensembl-gene-reference {
   pr:P594	LITERAL ; # Ensembl Gene ID [P594]
 }
 
-gw:homologene-reference {
+<#homologene-reference> {
   pr:P248 [wd:Q20976936]; # Stated in [P248]  homologene build68 [Q20976936]
   pr:P593 LITERAL; # Homologene identifier
 }
 
-gw:miriam_reference {
+<#miriam_reference> {
   pr:P248		[wd:Q16335166] ; # Stated in [P248] MIRIAM registry
   pr:P854		IRI ; # Reference URL [P854] to a IRI
 }
 
-gw:uniprot-reference {
+<#uniprot-reference> {
   pr:P248	[wd:Q905695] ;
   pr:P352	LITERAL ;
   pr:P813	xsd:dateTime ;
 }
 
 ## Lists with Wikidata items
-gw:gene_types [
+<#gene_types> [
   wd:Q7187  # gene
   wd:Q20747295 # protein-coding gene
   wd:Q427087 # ncRNA
@@ -215,7 +214,7 @@ gw:gene_types [
   wd:Q25323710 # scRNA
 			 ]
 
-gw:human-chromosomes [
+<#human-chromosomes> [
   wd:Q430258  # human chromosome 1
   wd:Q638893  # human chromosome 2
   wd:Q668633  # human chromosome 3
@@ -243,7 +242,7 @@ gw:human-chromosomes [
   wd:Q27075  # human chromosome MT
 			]
 						
-gw:genomic-assembly [
+<#genomic-assembly> [
   wd:Q20966585 # Genome assembly GRCh38
   wd:Q21067546 # Genome assembly GRCh37
 			]
