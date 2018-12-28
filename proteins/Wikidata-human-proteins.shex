@@ -1,4 +1,4 @@
-BASE <https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/master/proteins/Wikidata-human-proteins.shex>
+# BASE <https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/master/proteins/Wikidata-human-proteins.shex>
 # Shape Expression for Human proteins in Wikidata
 
 PREFIX wd: <http://www.wikidata.org/entity/>
@@ -159,9 +159,8 @@ wd:Q23190826
 
 # REFERENCES
 
-<#protein_reference> .
-#<#protein_reference> @<#uniprot_reference> OR  
-#	@<#literature_reference> 
+<#protein_reference> @<#uniprot_reference> OR  
+	@<#literature_reference> 
 
 <#uniprot_reference> {
 	pr:P248	[
