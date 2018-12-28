@@ -46,7 +46,7 @@ start = @<#wikidata-human-protein>
 
 <#P31_instance_of> {
 	ps:P31 [wd:Q8054] ;
-	prov:wasDerivedFrom IRI;
+	prov:wasDerivedFrom @<#protein_reference>;
 }
  
 <#P352_uniprot_id> {
@@ -158,6 +158,7 @@ wd:Q23190826
 
 
 # REFERENCES
+<#protein_reference> {}
 
 #<#protein_reference> @<#uniprot_reference> OR  
 #	@<#literature_reference> 
