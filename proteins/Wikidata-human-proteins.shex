@@ -39,9 +39,7 @@ start = @<#wikidata-human-protein>
 	p:P705 @<#P705_ensembl_protein_id>* ;
 	p:P637 @<#P637_RefSeq_Protein_ID>* ; 
     p:P639 @<#P639_RefSeq_RNA_ID>* ; # Currently, we decided to model this, but change in the future if we find a more acurate representation
-	# A protein item should never have the following Identifiers
-	p:P351 IRI{0} ;
-	p:P594 IRI{0} ;
+
 }
 
 # Shape expressions for Wikidata statements
@@ -158,9 +156,6 @@ wd:Q23190826
 	prov:wasDerivedFrom @<#protein_reference> ;
 }
 
-<#P351_ncbi_gene_id> .
-
-<#P594_ensembl_gene_id> .
 
 # REFERENCES
 
