@@ -55,12 +55,12 @@ start = @<#wikidata-human-protein>
 }
 
 <#P361_part_of> {
-	ps:P361 @<#InterproFamily> ;
+	ps:P361 P3848 ;
 	prov:wasDerivedFrom @<#interpro_reference>;
 }
 
 <#P527_has_part> {
-	ps:P527 @<#InterproFamily> ;
+	ps:P527 IRI ;
 	prov:wasDerivedFrom @<#protein_reference>;
 }
 
@@ -206,4 +206,3 @@ wd:Q23190826
 	}
 }
 
-<#InterproFamily> .
