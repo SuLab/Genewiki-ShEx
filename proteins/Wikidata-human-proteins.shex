@@ -55,7 +55,7 @@ start = @<#wikidata-human-protein>
 }
 
 <#P361_part_of> {
-	ps:P361 P3848 ;
+	ps:P361 IRI ;
 	prov:wasDerivedFrom @<#interpro_reference>;
 }
 
