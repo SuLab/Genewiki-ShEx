@@ -40,20 +40,20 @@ start = @<#wikidata-human-protein>
 	p:P637 @<#P637_RefSeq_Protein_ID>* ; 
     p:P639 @<#P639_RefSeq_RNA_ID>* ; # Currently, we decided to model this, but change in the future if we find a more acurate representation
 	# A protein item should never have the following Identifiers
-	p:P351 @<#P351_ncbi_gene_id>{0} ;
-	p:P594 @<#P594_ensembl_gene_id>{0} ;
+	p:P351 IRI{0} ;
+	p:P594 IRI{0} ;
 }
 
 # Shape expressions for Wikidata statements
 
 <#P31_instance_of> {
 	ps:P31 [wd:Q8054] ;
-	prov:wasDerivedFrom IRI;
+	prov:wasDerivedFrom @<#protein_reference>;
 }
  
 <#P352_uniprot_id> {
 	ps:P352 LITERAL ;
-	prov:wasDerivedFrom IRI;
+	prov:wasDerivedFrom @<#protein_reference>;
 }
 
 <#P361_part_of> {
@@ -63,33 +63,33 @@ start = @<#wikidata-human-protein>
 
 <#P527_has_part> {
 	ps:P527 @<#InterproFamily> ;
-	prov:wasDerivedFrom IRI;
+	prov:wasDerivedFrom @<#protein_reference>;
 }
 
 <#P637_RefSeq_Protein_ID> {
 	ps:P637 LITERAL ;
-	prov:wasDerivedFrom IRI;
+	prov:wasDerivedFrom @<#protein_reference>;
 }
 
 <#P680_molecular_function> {
 	ps:P680 @<#molecular_function> ;
 	pq:P459 @<#determination_method>+ ;
-	prov:wasDerivedFrom IRI+;
+	prov:wasDerivedFrom @<#protein_reference>+;
 }
 <#P681_cell_component> {
 	ps:P681 @<#cell_component> ;
 	pq:P459 @<#determination_method>+ ;
-	prov:wasDerivedFrom IRI+;
+	prov:wasDerivedFrom @<#protein_reference>+;
 }
 <#P682_biological_process> {
 	ps:P682 @<#biological_process> ;
 	pq:P459 @<#determination_method>+ ;
-	prov:wasDerivedFrom IRI+;
+	prov:wasDerivedFrom @<#protein_reference>+;
 }
 
 <#P639_RefSeq_RNA_ID> {
 	ps:P637 LITERAL ;
-	prov:wasDerivedFrom IRI;
+	prov:wasDerivedFrom @<#protein_reference>;
 }
 
 <#molecular_function> {
@@ -134,12 +134,12 @@ wd:Q23190826
 
 <#P702_encoded_by> {	
      ps:P702 @<#human_gene> ;
-	 prov:wasDerivedFrom IRI+ 
+	 prov:wasDerivedFrom @<#protein_reference>+ 
 } 
 
 <#P703_found_in_taxon_human> {	
      ps:P703 [wd:Q15978631] ;
-	 prov:wasDerivedFrom IRI+ 
+	 prov:wasDerivedFrom @<#protein_reference>+ 
 }
 
 <#P1910_decreased_expression_in> {
@@ -155,19 +155,16 @@ wd:Q23190826
 # Identifiers
 <#P705_ensembl_protein_id> {
 	ps:P705 LITERAL ;
-	prov:wasDerivedFrom IRI ;
+	prov:wasDerivedFrom @<#protein_reference> ;
 }
 
-<#P351_ncbi_gene_id> {
-	ps:P351 LITERAL ;
-}
+<#P351_ncbi_gene_id> .
 
-<#P594_ensembl_gene_id> {
-	ps:P594 LITERAL
-}
+<#P594_ensembl_gene_id> .
 
 # REFERENCES
 
+<#protein_reference> .
 #<#protein_reference> @<#uniprot_reference> OR  
 #	@<#literature_reference> 
 
