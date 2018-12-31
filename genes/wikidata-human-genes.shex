@@ -70,7 +70,8 @@ start = <#wikidata-human-gene>
    ps:P31 @<#gene_types> ;     # Instance of [P31] gene types
    prov:wasDerivedFrom @<#ncbi-gene-reference> OR @<#ensembl-gene-reference> ;
 } 
-<#P279_subclass_of_gene { 
+
+<#P279_subclass_of_gene> { 
     ps:P279 @<#gene_types> ; # Subclass of [P279] gene types <gene_types>
 	prov:wasDerivedFrom @<#ncbi-gene-reference> OR @<#ensembl-gene-reference> ;
 } 
@@ -83,7 +84,7 @@ start = <#wikidata-human-gene>
    prov:wasDerivedFrom @<#ensembl-gene-reference> ;
 }
 
-<#P645_genomic_end {
+<#P645_genomic_end> {
    ps:P645 LITERAL ; # genomic start [P645] value
    pq:P1057	@<#human-chromosomes>+ ;	 # Qualifier indicating the applicable chromosome [P1057] from a set of
                                      #  list Wikidata on chromosomes described below.
@@ -132,7 +133,7 @@ start = <#wikidata-human-gene>
 ## IDENTIFIERS
 <#P351_ncbi_gene_id> {
 	ps:P351 LITERAL ; # The NCBI gene identifier [P351] for the applicable gene item.
-	prov:wasDerivedFrom @<#ncbi-gene-reference ;
+	prov:wasDerivedFrom @<#ncbi-gene-reference> ;
 }
 
 <#P352_uniprot_id_wor> { # The (non-existent) uniprot identifier [P352] for the applicable gene item.
@@ -141,7 +142,7 @@ start = <#wikidata-human-gene>
 	
 <#P353_hgnc_gene_symbol> {
    ps:P353 LITERAL ; # The gene symbol [P353] for the applicable gene item.
-   prov:wasDerivedFrom @<#ncbi-gene-reference ;
+   prov:wasDerivedFrom @<#ncbi-gene-reference> ;
 }
 
 <#P354_hgnc_gene_id> {
