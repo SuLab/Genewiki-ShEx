@@ -17,99 +17,97 @@ PREFIX mir: <http://www.ebi.ac.uk/miriam/main/collections/>
 
 start = @<#disease>
 
-<#disease> EXTRA p:P31 p:P279 {
+<#disease> EXTRA p:P31 p:P279 p:P492 p:P493 {
 
   # Statements 
   p:P31  @<#P31_disease-class> ;
-  p:P279  @<#P279_disease-parent-class>* ;
+  p:P279  @<#P279_disease-parent-class> ;
   p:P2888 @<#P2888_disease-ontology-iri> ;
   p:P2888 @<#P2888_identifiers-org-iri> ;
+  p:P2888 IRI? ;
 
   ## IDENTIFIERS
-  p:P699 @<#P699_disease_ontology_id> ;
+  p:P699 @<#P699_disease_ontology_id>+ ;
   p:P486 @<#P486_mesh_id>* ;
   p:P492 @<#P492_omim_id>* ;
   p:P493 @<#P493_icd_9>* ;
-  p:P494 @<#P494_icd_10>* ;
+  p:P4229 @<#P4229_icd_10CM>* ;
   p:P1550 @<#P1550_orphanet_id>* ;
   p:P1748 @<#P1748_nci_thesaurus>* ;
-  p:P2892 @<#P2892_umls-cui>? ;
+  p:P2892 @<#P2892_umls-cui>* ;
 } 
 
 ## Statements 
 
 <#P31_disease-class> {
   ps:P31 [wd:Q12136] ;
-  prov:wasDerivedFrom @<#do-reference> ;
-
+  prov:wasDerivedFrom @<#reference>+ ;
 } 
 
 <#P279_disease-parent-class> {
   # ps:P279  <#disease ; # checking this recursive constraint is to expensive, hence it being a comment for now
-  prov:wasDerivedFrom @<#do-reference> ;
+  prov:wasDerivedFrom @<#reference>+ ;
 }
 
 <#P2888_disease-ontology-iri> {
   ps:P2888  [do:~] ;
-  prov:wasDerivedFrom @<#do-reference> ;
+  prov:wasDerivedFrom @<#reference>+ ;
 }
 
 <#P2888_identifiers-org-iri> {
   ps:P2888  [doio:~] ;
-  prov:wasDerivedFrom @<#miriam-reference>
+  prov:wasDerivedFrom @<#miriam-reference>+
 }
 
 ## Identifiers
-<#P699_disease_ontology_id> { 
+<#P699_disease_ontology_id> EXTRA prov:wasDerivedFrom { 
   ps:P699 LITERAL  /^DOID:[0-9]+$/;
-  prov:wasDerivedFrom @<#do-reference> ;
+  prov:wasDerivedFrom @<#reference>+ ;
 } 
 
 <#P486_mesh_id> { 
   ps:P486 LITERAL ;
-  prov:wasDerivedFrom @<#do-reference> ;
+  prov:wasDerivedFrom @<#reference>+ ;
 } 
 
 <#P492_omim_id> { 
   ps:P492 LITERAL ;
-  prov:wasDerivedFrom @<#do-reference> ;
+  prov:wasDerivedFrom @<#reference>+ ;
 } 
 
 <#P493_icd_9> { 
   ps:P493 LITERAL ;
-  prov:wasDerivedFrom @<#do-reference> ;
+  prov:wasDerivedFrom @<#reference>+ ;
 } 
      
-<#P494_icd_10> { 
-  ps:P494 LITERAL ;
-  prov:wasDerivedFrom @<#do-reference> ;
+<#P4229_icd_10CM> { 
+  ps:P4229 LITERAL ;
+  prov:wasDerivedFrom @<#reference>+ ;
 } 
   
 <#P1550_orphanet_id> {
   ps:P1550 LITERAL ;
-  prov:wasDerivedFrom @<#do-reference> ;
+  prov:wasDerivedFrom @<#reference>+ ;
 } 
      
 <#P1748_nci_thesaurus> {
   ps:P1748 LITERAL ;
-  prov:wasDerivedFrom @<#do-reference> ;
+  prov:wasDerivedFrom @<#reference>+ ;
 } 
 
 <#P2888_exact_match> {
   ps:P2888 IRI ;
-  prov:wasDerivedFrom @<#miriam-reference> OR @<#do-reference> ;
+  prov:wasDerivedFrom @<#reference>+ ;
 } 
      
 <#P2892_umls-cui> { 
   ps:P2892 LITERAL ;
-  prov:wasDerivedFrom @<#do-reference> ;
+  prov:wasDerivedFrom @<#reference>+ ;
 } 
 
 
-<#do-reference> {
-  pr:P248   IRI ; #Needs to be fixed by downloading the addtional arcs
-  pr:P813   xsd:dateTime ;
-  pr:P699   LITERAL  /^DOID:[0-9]+$/; 
+<#reference> {
+
 } 
 
 <#version-disease-ontology> {
