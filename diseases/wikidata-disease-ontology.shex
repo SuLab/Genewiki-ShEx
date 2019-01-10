@@ -14,17 +14,16 @@ PREFIX do: <http://purl.obolibrary.org/obo/DOID_>
 PREFIX doio: <http://identifiers.org/doid/>
 PREFIX mir: <http://www.ebi.ac.uk/miriam/main/collections/>
 
-
 start = @<#disease>
 
 <#disease> EXTRA p:P31 p:P279 p:P492 p:P493 {
 
   # Statements 
-  p:P31  @<#P31_disease-class> ;
-  p:P279  @<#P279_disease-parent-class> ;
-  p:P2888 @<#P2888_disease-ontology-iri> ;
-  p:P2888 @<#P2888_identifiers-org-iri> ;
-  p:P2888 IRI? ;
+  p:P31  @<#P31_disease-class>+ ;
+  p:P279  @<#P279_disease-parent-class>+ ;
+  # p:P2888 @<#P2888_disease-ontology-iri>+ ;
+  # p:P2888 @<#P2888_identifiers-org-iri>+ ;
+  p:P2888 IRI* ;
 
   ## IDENTIFIERS
   p:P699 @<#P699_disease_ontology_id>+ ;
@@ -45,7 +44,7 @@ start = @<#disease>
 } 
 
 <#P279_disease-parent-class> {
-  # ps:P279  <#disease ; # checking this recursive constraint is to expensive, hence it being a comment for now
+  ps:P279  IRI ; 
   prov:wasDerivedFrom @<#reference>+ ;
 }
 
@@ -67,11 +66,13 @@ start = @<#disease>
 
 <#P486_mesh_id> { 
   ps:P486 LITERAL ;
+  pq:P4390 IRI? ;
   prov:wasDerivedFrom @<#reference>+ ;
 } 
 
 <#P492_omim_id> { 
   ps:P492 LITERAL ;
+  pq:P4390 IRI? ;
   prov:wasDerivedFrom @<#reference>+ ;
 } 
 
