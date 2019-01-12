@@ -12,6 +12,10 @@
 
 
 This repository collects Shape Expression to model and validate Wikidata items added by bots developed and maintained in the Gene wiki project. 
+
+## Stability of the Shape Expressions
+The Shape Expression schemas in this repository are under active development and reflect changes to the underlying data structures. Once they are stable, this message will be updated. At that point, only monotonic changes will be made. This complies with the [W3C namespace policy](http://www.w3.org/1999/10/nsuri). Future releases will use ShExMap to provide a computable mapping between different versions.
+
 ## Installation
 Running Shape expressions requires shex.js. Installation instructions can be found [here](https://github.com/shexSpec/shex.js/)
 ## Usage
