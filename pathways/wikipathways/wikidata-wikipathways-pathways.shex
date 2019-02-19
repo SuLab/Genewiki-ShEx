@@ -1,4 +1,5 @@
 # Shape Expression for Human genes in Wikidata 
+BASE <https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/master/pathways/wikipathways/wikidata-wikipathways-pathways.shex>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX p: <http://www.wikidata.org/prop/>

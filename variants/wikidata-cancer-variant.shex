@@ -99,8 +99,7 @@ start = @<#wikidata-civic-variant-record>
 }
 
 <#civic-variant-reference> {
-      # P248 = Stated in
-      pr:P248	[wd:Q27612411 ] ;
+      pr:P248	[wd:Q27612411] ;
 	  # P854 = reference URL
 	  pr:P854	IRI ;
 	  # P813 = retrieved

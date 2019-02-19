@@ -45,7 +45,7 @@ start = @<#disease>
 
 <#P279_disease-parent-class> {
   ps:P279  IRI ; 
-  prov:wasDerivedFrom @<#reference>+ ;
+  prov:wasDerivedFrom @<#reference>* ;
 }
 
 <#P2888_disease-ontology-iri> {
