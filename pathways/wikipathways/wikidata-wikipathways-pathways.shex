@@ -1,5 +1,4 @@
 # Shape Expression for Human genes in Wikidata 
-PREFIX github: <https://raw.githubusercontent.com/SuLab/Genewiki-ShEx/master/pathways/wikipathways/wikidata-wikipathways-pathways.shex#>
 PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
 PREFIX p: <http://www.wikidata.org/prop/>
@@ -15,9 +14,9 @@ PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX wikicite: <http://micel.io/wikicite/>
 PREFIX wpidorg: <http://identifiers.org/wikipathways/>
 
-start = @github:wikidata-wp-pathway
+start = @<#wikidata-wp-pathway>
 
-github:wikidata-wp-pathway {
+<#wikidata-wp-pathway> {
 	# Statements 
     p:P31 @<#P31_pathway_ontology_term> ;
     p:P527 @<#P527_has_part>* ;
