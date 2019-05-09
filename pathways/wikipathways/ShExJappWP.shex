@@ -38,12 +38,12 @@ start=@<#WD_Pathway>
       # Provenance 
       schema:version  xsd:integer;
       schema:dateModified  xsd:dateTime;
-      schema:description  rdf:langString;
+      schema:description  xsd:string;
       wikibase:statements  xsd:integer; 
       wikibase:sitelinks  xsd:integer;
       wikibase:identifiers  xsd:integer;
       wikibase:timestamp  xsd:dateTime ?;
-      rdfs:label  xsd:tring;
+      rdfs:label  xsd:string;
 
       # Statements
       # instance of
