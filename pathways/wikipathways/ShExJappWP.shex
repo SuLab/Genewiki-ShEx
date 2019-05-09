@@ -30,7 +30,8 @@ PREFIX psn: <http://www.wikidata.org/prop/statement/value-normalized/>
 PREFIX schema: <http://schema.org/>
 PREFIX wikibase: <http://wikiba.se/ontology#>
 
-start = @<#WD_Pathway>
+start=@<#WD_Pathway>
+
 <#WD_Pathway> {
   # Ontology indications
   # Data indications
