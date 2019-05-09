@@ -43,7 +43,7 @@ start=@<#WD_Pathway>
       wikibase:sitelinks  xsd:integer;
       wikibase:identifiers  xsd:integer;
       wikibase:timestamp  xsd:dateTime ?;
-      rdfs:label  rdf:langString;
+      rdfs:label  xsd:tring;
 
       # Statements
       # instance of
